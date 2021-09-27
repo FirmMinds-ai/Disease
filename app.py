@@ -44,7 +44,8 @@ def home() :
         X = scaler.transform([Inp])
 
         out = lir.predict(X)[0]
-
+        if out < 0 :
+            out = 0
         d = {"Prediction" : out*100}
 
     return jsonify(d)
